@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.shizy.androidsample.R;
+import com.shizy.androidsample.ui.base.BaseAdapter;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * Created by shizy on 2016/12/15.
  */
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class MainAdapter extends BaseAdapter<MainAdapter.ViewHolder> implements View.OnClickListener {
 
 	private List<ActivityInfo> mDataList;
 
@@ -26,14 +27,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		TextView tv = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main, parent, false);
-		ViewHolder vh = new ViewHolder(tv);
-		return vh;
+		tv.setOnClickListener(this);
+		return new ViewHolder(tv);
 	}
 
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
 		String cName = mDataList.get(position).name;
 		holder.textView.setText(cName.substring(cName.lastIndexOf(".") + 1));
+		holder.textView.setTag(position);
 	}
 
 	@Override
@@ -41,7 +43,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 		return mDataList == null ? 0 : mDataList.size();
 	}
 
-	public static class ViewHolder extends RecyclerView.ViewHolder {
+	@Override
+	public void onClick(View view) {
+		if (mOnItemClickListener != null) {
+			mOnItemClickListener.onItemClick((Integer) view.getTag());
+		}
+	}
+
+	protected static class ViewHolder extends RecyclerView.ViewHolder {
 
 		TextView textView;
 
