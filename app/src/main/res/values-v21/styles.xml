@@ -4,6 +4,16 @@
 		<item name="windowActionBar">false</item>
 		<item name="windowNoTitle">true</item>
 		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
-		<item name="android:statusBarColor">@android:color/transparent</item>
+		<!--
+		 	android:statusBarColor 默认将继承colorPrimaryDark的值
+		 	加入此行后会导致colorPrimaryDark无效
+		 	如果不加此行，使用DrawerLayout+NavigationView时，会导致NavigationView无法延伸至状态栏
+
+			<item name="android:statusBarColor">@android:color/transparent</item>
+		 -->
+		<!--
+			使用后布局将填充系统状态栏后面的区域，可以在布局中结合fitsSystemWindows使用
+			<item name="android:windowTranslucentStatus">true</item>
+		-->
 	</style>
 </resources>
