@@ -12,7 +12,7 @@
 		android:background="?attr/colorPrimary"
 		app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-	<android.support.v4.widget.SwipeRefreshLayout
+	<com.shizy.refreshlib.SwipeRefreshLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
@@ -35,6 +35,6 @@
 			</LinearLayout>
 		</android.support.v4.widget.NestedScrollView>
 
-	</android.support.v4.widget.SwipeRefreshLayout>
+	</com.shizy.refreshlib.SwipeRefreshLayout>
 
 </LinearLayout>
