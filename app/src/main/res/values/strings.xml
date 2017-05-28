@@ -3,4 +3,6 @@
 	<string name="app_name">AndroidSample</string>
 	<string name="developer">46428886@qq.com</string>
 
+	<string name="wake_on_lan">远程唤醒</string>
+
 </resources>
