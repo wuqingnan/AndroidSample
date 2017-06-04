@@ -24,6 +24,7 @@
         <activity android:name=".ui.refresh.SwipeRefreshActivity" />
         <activity android:name=".ui.jobscheduler.JobSchedulerActivity" />
         <activity android:name=".ui.wol.WakeOnLanActivity" />
+        <activity android:name=".ui.picker.NumberPickerActivity" />
 
         <service
             android:name=".service.SampleJobService"
